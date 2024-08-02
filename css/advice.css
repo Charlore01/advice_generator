@@ -1,0 +1,157 @@
+:root {
+    --light-cyan: hsl(193, 38%, 86%);
+    --neon-green: hsl(150, 100%, 66%);
+    --grayish-blue: hsl(217, 19%, 38%);
+    --dark-grayish-blue: hsl(217, 19%, 24%);
+    --dark-blue: hsl(218, 23%, 16%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.advice-card {
+    background-color: var(--dark-grayish-blue);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 540px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); */
+}
+
+.advice-card:hover {
+    box-shadow: 0px 5px 30px hsl(150, 100%, 66%);
+}
+
+.advice-number {
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.advice-text {
+    color: var(--light-cyan);
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.divider {
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 2rem;
+}
+
+.dice-button {
+    background-color: var(--neon-green);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -32px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.dice-button:hover {
+    box-shadow: 0 0 40px var(--neon-green);
+}
+
+.dice-button:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+.dice-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.dice-button.loading .dice-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.share-buttons {
+    margin-top: 2rem;
+    display: flex;
+    /* justify-content: center; */
+    margin-left: 6.5rem;
+    gap: 1rem;
+}
+
+.share-button {
+    background-color: var(--grayish-blue);
+    color: var(--light-cyan);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.share-button:hover {
+    background-color: var(--neon-green);
+    color: var(--dark-blue);
+}
+
+footer {
+    color: var(--light-cyan);
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--neon-green);
+    text-decoration: none;
+}
+
+@media (max-width: 475px) {
+    .advice-card {
+        padding: 1.5rem;
+    }
+
+    .advice-text {
+        font-size: 24px;
+    }
+
+    .divider {
+        display: none;
+    }
+}
